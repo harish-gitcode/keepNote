@@ -2,13 +2,15 @@ const connectToMongo = require("./db");
 var cors = require("cors");
 require("dotenv").config();
 
-connectToMongo();
+const con = async () => {
+  await connectToMongo();
+};
+con();
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
 
 app.use(cors());
-
 app.use(express.json());
 
 // Available routes
